@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import java.io.File;
 
 public class AddBlockerUseCase {
-    @Description("Use cases for Add Blocker")
+    @Description("Use cases for Add Blocker to block ads on youtube")
     @Test
     public void test_selenium01(){
         EdgeOptions edgeOptions = new EdgeOptions();
