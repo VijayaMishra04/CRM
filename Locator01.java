@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class Locator01 {
@@ -35,7 +36,7 @@ public class Locator01 {
             //With ID Locators
         WebElement email = driver.findElement(By.id("email_id"));//(30 Dec - 32:44)
         email.sendKeys("admin@admin.com");
-        Thread.sleep(5000);
+        Thread.sleep(10000);
 
         //2. Find the Password input and enter Password.
 //      <input
@@ -50,12 +51,37 @@ public class Locator01 {
 
         WebElement password = driver.findElement(By.name("password"));
         password.sendKeys("123456");
-        Thread.sleep(15000);
-        driver.quit();
+        Thread.sleep(10000);
 
-        //3. Find submit button and click on it.
+        //3. Find Login button and click on it.
+        //<button
+        // type="submit"
+        // id="btn_login"
+        // class="btn dark-bg py-3 btn-block"
+        // style="font-size:14px;
+        // font-weight:600;">
+        // LOGIN
+        // </button>
+
+        WebElement login = driver.findElement(By.id("btn_login"));
+        login.click();
+        Thread.sleep(10000);
 
         //4. Find the invalid error msg and verify.
+        //<h2
+        // class="swal2-title"
+        // id="swal2-title"
+        // style="display: block;"
+        // >Invalid User Name
+        // </h2>
+
+        WebElement error_msg = driver.findElement(By.className("swal2-title"));
+        Assert.assertEquals(error_msg.getText(),"Invalid User Name"); //Invalid Credentials should display
+//        WebElement ErrorMSG = driver.findElement(By.id("swal2-title")); // We can use class , and ID as well
+
+        driver.quit();
+
+
 
 
     }
