@@ -1,7 +1,9 @@
 package com.vijaya.Selenium_Locators;
 
 import io.qameta.allure.Description;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.testng.annotations.Test;
@@ -30,10 +32,26 @@ public class Locator01 {
         // aria-invalid="false"
         // > Close HTML Tag
 
-
-
+            //With ID Locators
+        WebElement email = driver.findElement(By.id("email_id"));//(30 Dec - 32:44)
+        email.sendKeys("admin@admin.com");
+        Thread.sleep(5000);
 
         //2. Find the Password input and enter Password.
+//      <input
+//      type="password"
+//      name="password"
+//      id="password"
+//      class="form-control"
+//      placeholder="Enter Your Password"
+//      onkeypress="return console.log(event.keyCode || event.which),(event.keyCode != 32 &amp;&amp; event.which != 32)"
+//      style="padding: 1.2rem !important;"
+//      oninput="inputfun()" >
+
+        WebElement password = driver.findElement(By.name("password"));
+        password.sendKeys("123456");
+        Thread.sleep(15000);
+        driver.quit();
 
         //3. Find submit button and click on it.
 
